@@ -42,6 +42,9 @@ $document->addScript('https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/p
 		<?php if($this->params->get('itemDateCreated')): ?>
 		<!-- Date created -->
 		<span class="itemDateCreated" itemprop="dateCreated">
+			<!-- Added datetime in ISO 8601 format -->
+			<time datetime="<?php echo (new DateTime($this->item->created))->format('c'); ?>"> 
+			<!-- End datetime in ISO 8601 format -->
 			<?php echo JHtml::_('date', $this->item->created, JText::_('K2_DATE_FORMAT_LC2')); ?>
 		</span>
 		<?php endif; ?>
